@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string intToRoman(int num) {
+        string ret;
+        
+        int i = num/1000;
+        while(i > 0) { i--;ret.push_back('M');}
+        num = num%1000;
+        if(num>=900) {ret.push_back('C');ret.push_back('M');}
+            num = num%900;
+            if(num>=500) ret.push_back('D');
+            num=num%500;
+            if(num>=400) {ret.push_back('C');ret.push_back('D');}           
+
+            num = num%400;
+            i = num/100;
+            while(i>0){i--;ret.push_back('C');}
+            num = num%100;
+            if(num >=90) {ret.push_back('X');ret.push_back('C');}
+            num = num%90;
+            if(num>=50) ret.push_back('L');
+            num = num%50;
+            if(num >= 40) {ret.push_back('X');ret.push_back('L');}
+            num = num%40;
+            i = num/10;
+            while(i>0){i--;ret.push_back('X');}                                             num = num%10;
+            if(num==9)  {ret.push_back('I');ret.push_back('X');}                         num = num%9;
+            if(num >= 5) ret.push_back('V');                                                 num = num%5;
+            if (num == 4){ret.push_back('I');ret.push_back('V');}
+            num = num%4;
+            while(num > 0) {num --;ret.push_back('I');}                                          
+
+        return ret; 
+        
+    }
+};
